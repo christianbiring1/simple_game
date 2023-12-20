@@ -5,32 +5,33 @@ import './App.css'
 
 function App() {
 
-  const generateNumber = () => {
+  const [dice, setDice] = useState(generateNumber());
+
+  function generateNumber(){
     const arrNumber = [];
     for(let i = 0; i < 10; i += 1) {
       const num = Math.floor(Math.random() * 6)
-      arrNumber.push(num);
+      arrNumber.push({
+        value: num,
+        isHeld: false,
+        id: Math.random()
+      });
     }
-    console.log(arrNumber);
     return arrNumber;
   }
 
-  generateNumber()
+  const RollDice = () => {
+    setDice(generateNumber());
+  }
 
   return (
     <main>
       <div className='dice-container'>
-        <Dice value={1} />
-        <Dice value={2} />
-        <Dice value={3} />
-        <Dice value={4} />
-        <Dice value={5} />
-        <Dice value={6} />
-        <Dice value={7} />
-        <Dice value={8} />
-        <Dice value={1} />
-        <Dice value={1} />
+        {dice.map(die => (
+          <Dice key={die.id} value={die.value} isHeld={die.isHeld}/>
+        ))}
       </div>
+      <button onClick={RollDice} className='roll-dice'>Roll</button>
     </main>
   )
 }
