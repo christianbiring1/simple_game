@@ -23,6 +23,11 @@ main {
   align-items: center;
 }
 
+.instructions {
+  text-align: center;
+  margin-top: 0;
+}
+
 .dice-container {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
