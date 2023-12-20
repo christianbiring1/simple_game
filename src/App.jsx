@@ -20,6 +20,17 @@ function App() {
     return arrNumber;
   }
 
+  const holdDice = (id) => {
+    // const newDice = [...dice];
+    // const index = newDice.findIndex(dice => dice.id === id);
+    // const updated = {...newDice[index], isHeld: !newDice[index].isHeld}
+    // console.log(updated);
+
+    setDice(prev => prev.map(die => {
+      return die.id === id ? {...die, isHeld: !die.isHeld} : die
+    }))
+  }
+
   const RollDice = () => {
     setDice(generateNumber());
   }
@@ -28,7 +39,12 @@ function App() {
     <main>
       <div className='dice-container'>
         {dice.map(die => (
-          <Dice key={die.id} value={die.value} isHeld={die.isHeld}/>
+          <Dice
+            key={die.id}
+            value={die.value}
+            isHeld={die.isHeld}
+            id={die.id}
+            handleHold={holdDice}/>
         ))}
       </div>
       <button onClick={RollDice} className='roll-dice'>Roll</button>
