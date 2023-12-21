@@ -69,7 +69,9 @@ function App() {
     } else {
       setTenzies(false);
       setDice(generateNumber());
+      timer.reset()
       setCount(0)
+      setDuration(0)
     }
   }
 
@@ -84,8 +86,8 @@ function App() {
       {tenzies && <Confetti/>}
       <h1 className='title'>Dice Game</h1>
       <p className='instructions'>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
-      <span>{count}</span>
-      <span>{duration}</span>
+      <span>No. Rolls: {count}</span>
+      <span>Duration: {duration} seconds</span>
       <div className='dice-container'>
         {dice.map(die => (
           <Dice

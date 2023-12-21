@@ -34,6 +34,10 @@ main {
   font-family: 'Open Sans', 'Helvetica Neue', monospace;
 }
 
+span {
+  font-family: 'Open Sans', 'Helvetica Neue', monospace;
+}
+
 .dice-container {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);

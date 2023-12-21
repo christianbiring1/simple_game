@@ -18,7 +18,7 @@ function Timer() {
     is_running = false;
     stopTime = new Date();
 
-    const seconds = stopTime.getTime() - startTime.getTime() / 1000
+    const seconds = (stopTime.getTime() - startTime.getTime()) / 1000
 
     duration += seconds;
   };
