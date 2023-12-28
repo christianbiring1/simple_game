@@ -22,7 +22,7 @@ function App() {
     if (allHeld && allSameValue) {
       setTenzies(true);
       timer.stop();
-      toast.success('Yeah! you have won!', {
+      toast.success('Congratulations! You have completed the game!', {
         duration: 6000,
         className: 'toast-hot'
       })
