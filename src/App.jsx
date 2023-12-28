@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
+import toast, { Toaster } from 'react-hot-toast';
 
 import timer from './components/utils/timer';
 import Dice from './components/dice';
@@ -21,6 +22,10 @@ function App() {
     if (allHeld && allSameValue) {
       setTenzies(true);
       timer.stop();
+      toast.success('Yeah! you have won!', {
+        duration: 6000,
+        className: 'toast-hot'
+      })
       setDuration(timer.duration);
       timer.reset();
     }
@@ -83,6 +88,7 @@ function App() {
 
   return (
     <main>
+      <Toaster />
       {tenzies && <Confetti/>}
       <h1 className='title'>Dice Game</h1>
       <p className='instructions'>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
